@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create!</title>
+<style>
+	html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	animation: fadeInAnimation ease 3s; 
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards; 
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 5040px;
+}
+
+.row {
+  padding: 1rem 2rem;
+}
+
+.box {
+  display: block;
+  width: 100%;
+  max-width: 1600px;
+  height: 1500px;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 50%; 
+  background-color: white; 
+}
+
+.ball {
+  position: absolute;
+  /*border-radius: 50%;*/
+  cursor: grab;
+}
+.ball:active {
+  cursor: grabbing;
+}
+
+.ball-1 {
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+   
+}
+.ball-2 {
+  left: calc(25% - 25px);
+  top: calc(25% - 25px);
+   
+}
+.ball-3 {
+   left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-4 {
+  left: calc(25% - 25px);
+  top: calc(75% - 25px);
+ 
+}
+.ball-5 {
+  left: calc(25% - 25px);
+  top: calc(75% - 25px);
+ 
+}
+.ball-6 {
+  left: calc(25% - 25px);
+  top: calc(75% - 25px);
+ 
+}
+.ball-7 {
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-8 {
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-9 {
+  left: calc(25% - 25px);
+  top: calc(25% - 25px);
+ 
+}
+.ball-10 {
+  left: calc(25% - 25px);
+  top: calc(25% - 25px);
+ 
+}
+.ball-11 {
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-12 {
+  left: calc(25% - 25px);
+  top: calc(25% - 25px);
+ 
+}
+.ball-13{
+  left: calc(25% - 25px);
+  top: calc(25% - 25px);
+}
+.ball-14 {
+   left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-15 {
+   left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-16 {
+   left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-17 {
+  left: calc(25% - 25px);
+  top: calc(25% - 25px);
+ 
+}
+.ball-18 {
+  left: calc(25% - 25px);
+  top: calc(75% - 25px);
+ 
+}
+.ball-19 {
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  
+}
+.ball-20 {
+  left: calc(25% - 25px);
+  top: calc(25% - 25px);
+}
+.ball-21 {
+   left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  
+}
+.ball-22 {
+  left: calc(25% - 25px);
+  top: calc(65% - 25px);
+ 
+}
+.ball-23 {
+  left: calc(25% - 25px);
+  top: calc(65% - 25px);
+ 
+}
+.ball-24 {
+  left: calc(30% - 25px);
+  top: calc(25% - 25px);
+}
+.ball-25 {
+  left: calc(60% - 25px);
+  top: calc(30% - 25px);
+ 
+}
+.ball-26 {
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+ 
+}
+.ball-27 {
+  left: calc(60% - 25px);
+  top: calc(30% - 25px);
+ 
+}
+.ball-28 {
+  left: calc(20% - 25px);
+  top: calc(50% - 25px); 
+ 
+}
+.ball-29 {
+  left: calc(25% - 25px);
+  top: calc(15% - 25px);
+ 
+}
+.ball-30 {
+  left: calc(30% - 25px);
+  top: calc(50% - 25px);
+  
+}
+.ball-32 {
+  left: calc(9% - 25px);
+  top: calc(30% - 25px);  
+ 
+}
+.ball-33 {
+  left: calc(60% - 25px);
+  top: calc(10% - 25px);
+ 
+}
+.ball-34 {
+  left: calc(40% - 25px);
+  top: calc(65% - 25px);
+  
+}
+.hidden {
+  display: none;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes fadeInAnimation { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+</style>
+</head>
+<body onkeydown="keyDown(event)" onkeyup="keyUp(event)">
+<div class="container">
+  <div class="row d-flex">
+    <div class="box box-1">
+      <div class="ball ball-1" draggable="true"> <img src="c.png" height="200px" width="200px"></div>
+      <div class="ball ball-2" draggable="true"> <img src="m.png" height="500px" width="550px"></div>
+      <div class="ball ball-3" draggable="true"><img src="t.png" height="400px" width="450px"></div>
+      <div class="ball ball-4" draggable="true"><img src="f.png" height="300px" width="300px"></div>
+      <div class="ball ball-5" draggable="true"><img src="7.png" height="300px" width="300px"></div>
+      <div class="ball ball-6" draggable="true"><img src="r.png" height="400px" width="400px"></div>
+      <div class="ball ball-7" draggable="true"> <img src="e.png" height="300px" width="350px"></div>
+      <div class="ball ball-8" draggable="true"> <img src="p.png" height="300px" width="350px"></div>
+      <div class="ball ball-9" draggable="true"> <img src="u.png" height="300px" width="350px"></div>
+      <div class="ball ball-10" draggable="true"><img src="f.png" height="300px" width="300px"></div>
+      <div class="ball ball-11" draggable="true"> <img src="troll.png" height="400px" width="450px"></div>
+      <div class="ball ball-12" draggable="true"> <img src="text.png" height="500px" width="550px"></div>
+      <div class="ball ball-13" draggable="true"> <img src="rose.png" height="500px" width="550px"></div>
+      <div class="ball ball-14" draggable="true"><img src="circles.png" height="400px" width="450px"></div>
+      <div class="ball ball-15" draggable="true"><img src="eye.png" height="400px" width="450px"></div>
+      <div class="ball ball-16" draggable="true"><img src="tree.png" height="400px" width="450px"></div>
+      <div class="ball ball-17" draggable="true"> <img src="v.png" height="500px" width="550px"></div>
+      <div class="ball ball-18" draggable="true"><img src="mag.png" height="400px" width="400px"></div>
+      <div class="ball ball-19" draggable="true"><img src="front.png" height="400px" width="400px"></div>
+      <div class="ball ball-20" draggable="true"> <img src="6.png" height="500px" width="550px"></div>
+      <div class="ball ball-21" draggable="true"> <img src="10.png" height="500px" width="550px"></div>
+      <div class="ball ball-22" draggable="true"><img src="soap.png" height="400px" width="400px"></div>
+      <div class="ball ball-23" draggable="true"><img src="fuzz.png" height="400px" width="400px"></div>
+      <div class="ball ball-24" draggable="true"> <img src="space.png" height="500px" width="550px"></div>
+      <div class="ball ball-25" draggable="true"><img src="bub.png" height="400px" width="450px"></div>
+      <div class="ball ball-26" draggable="true"> <img src="lips.png" height="400px" width="350px"></div>
+      <div class="ball ball-27" draggable="true"><img src="shoes.png" height="500px" width="450px"></div>
+      <div class="ball ball-28" draggable="true"><img src="nike.png" height="500px" width="400px"></div>
+      <div class="ball ball-29" draggable="true"> <img src="clothes.png" height="300px" width="350px"></div>
+      <div class="ball ball-30" draggable="true"><img src="weave.png" height="300px" width="400px"></div>
+      <div class="ball ball-32" draggable="true"> <img src="bio.png" height="500px" width="550px"></div>
+      <div class="ball ball-33" draggable="true"><img src="basket.png" height="500px" width="450px"></div>
+      <div class="ball ball-34" draggable="true"> <img src="pan.png" height="550px" width="550px"></div>
+     </div>
+<audio id="audio" src="clairo.mp3" autostart="false"></audio>
+</div>
+
+
+<script>
+
+var sound = {
+    80: 'audio'
+};
+
+document.addEventListener('keydown', function(e) {
+    var audio = sound[e.which || e.keyCode];
+
+    if (audio) {
+        var elem = document.getElementById('audio');
+
+        if ( elem.paused ) {
+            elem.play();
+        } else {
+            elem.pause();
+        }
+    } else {
+        console.log("key not mapped : code is", e.keyCode);
+    }
+});
+
+
+window.onkeypress = function colorchange(x)
+{ 
+    if (x.keyCode === 97) {
+    var divs = document.getElementsByClassName("box");
+    for (var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#99FF33";
+    }
+    return;
+  }
+  else if (x.keyCode === 98)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#FF9933";
+    }
+    return;
+  }
+  else if (x.keyCode === 99)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#9999FF";
+    }
+    return;
+  }
+
+  else if (x.keyCode === 100)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#6666FF";
+    }
+    return;
+  }
+    else if (x.keyCode === 101)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#20B2AA";
+    }
+    return;
+  }
+      else if (x.keyCode === 102)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#7FFFD4";
+    }
+    return;
+  }
+       else if (x.keyCode === 103)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#FA8072";
+    }
+    return;
+  }
+        else if (x.keyCode === 104)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#DC143C";
+    }
+    return;
+  }
+          else if (x.keyCode === 105)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#FFD700";
+    }
+    return;
+  }
+            else if (x.keyCode === 106)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#000080";
+    }
+    return;
+  }
+            else if (x.keyCode === 107)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#DDA0DD";
+    }
+    return;
+  }
+            else if (x.keyCode === 108)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "#3CB371";
+    }
+    return;
+  }
+  else if (x.keyCode === 32)
+  {
+    var divs = document.getElementsByClassName("box");
+    for(var i = 0; i < divs.length; i++)
+    {
+      divs[i].style.backgroundColor = "white";
+    }
+    return;
+  }
+  else 
+  {
+    alert("this key doesnt do anything")
+  }
+};
+
+	(function(){
+
+  const boxes = document.querySelectorAll('.box'),
+        balls = document.querySelectorAll('.ball');
+
+  balls.forEach(function(ball, index){
+    ball.addEventListener('dragstart', function(event) { dragStart(event, index) });
+    ball.addEventListener('dragend', function() { this.classList.remove('hidden') });
+  });
+
+  boxes.forEach(function(box){
+    box.addEventListener('dragover', function(event) { event.preventDefault() });
+    box.addEventListener('drop', dropBall);
+  });
+
+
+  function dragStart(event, index)
+  {
+    const ball = balls[index];
+
+    event.dataTransfer.setData('index',         index);
+    event.dataTransfer.setData('ballWidth',     ball.offsetWidth);
+    event.dataTransfer.setData('ballHeight',    ball.offsetHeight);
+    event.dataTransfer.setData('mouseFromLeft', event.clientX - ball.getBoundingClientRect().x);
+    event.dataTransfer.setData('mouseFromTop',  event.clientY - ball.getBoundingClientRect().y);
+
+    setTimeout(() => { ball.classList.add('hidden') }, 0);
+  }
+
+  function dropBall(event)
+  {
+    const box           = this,
+          boxWidth      = box.clientWidth,
+          boxHeight     = box.clientHeight,
+
+          ball          = balls[event.dataTransfer.getData('index')],
+          ballWidth     = event.dataTransfer.getData('ballWidth'),
+          ballHeight    = event.dataTransfer.getData('ballHeight'),
+
+          mouseFromLeft = event.dataTransfer.getData('mouseFromLeft'),
+          mouseFromTop  = event.dataTransfer.getData('mouseFromTop');
+
+    let styleTop  = event.clientY - box.getBoundingClientRect().y - mouseFromTop,
+        styleLeft = event.clientX - box.getBoundingClientRect().x - mouseFromLeft;
+
+    if (styleTop < 0) { styleTop = 0 };
+    if (styleTop > (boxHeight - ballHeight)) { styleTop = boxHeight - ballHeight };
+    if (styleLeft < 0) { styleLeft = 0 };
+    if (styleLeft > (boxWidth - ballWidth)) { styleLeft = boxWidth - ballWidth };
+
+    ball.style.top  = styleTop  + 'px';
+    ball.style.left = styleLeft + 'px';
+    box.appendChild(ball);
+  }
+
+})();
+
+
+
+
+
+
+  
+  
+
+</script>
+</body>
+</html>
